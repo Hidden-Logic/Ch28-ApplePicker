@@ -26,8 +26,7 @@ public class ApplePicker : MonoBehaviour
     }
 
     public void AppleDestroyed()
-    {                                          
-        // Destroy all of the falling apples
+    {                                 
         GameObject[] tAppleArray = GameObject.FindGameObjectsWithTag("Apple");
         foreach (GameObject tGO in tAppleArray)
         {
@@ -35,13 +34,10 @@ public class ApplePicker : MonoBehaviour
         }
 
         int basketIndex = basketList.Count - 1;
-        // Get a reference to that Basket GameObject
         GameObject tBasketGO = basketList[basketIndex];
-        // Remove the Basket from the list and destroy the GameObject
         basketList.RemoveAt(basketIndex);
         Destroy(tBasketGO);
 
-        // If there are no Baskets left, restart the game
         if (basketList.Count == 0)
         {
             SceneManager.LoadScene("_Scene_0");                             
